@@ -1,2 +1,6 @@
-public class BadBadValueException extends Throwable {
+class BadBadValueException extends Throwable {
+
+    BadBadValueException(String s) {
+        super(s);
+    }
 }
