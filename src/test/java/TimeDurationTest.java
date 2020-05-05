@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class TimeDurationTest {
 
@@ -33,7 +34,11 @@ public class TimeDurationTest {
         assertThat(result).isEqualTo(expected);
     }
 
-
-
+    @Test
+    public void should_raise_exception_when_given_negative_integer() {
+        assertThatExceptionOfType(BadBadValueException.class)
+                .isThrownBy(() -> new TimeDuration(-741).toString())
+                .withMessage("The input should be a positive integer!");
+    }
 
 }
